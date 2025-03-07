@@ -37,6 +37,9 @@ class HashMap
     # Resize the hash map if necessary
     resize if @length > (@capacity * LOAD_FACTOR) #16*0.75 = 12 so once length hits 13 initially
     
+    index = hash(key)
+    raise IndexError if index.negative?
+
     #come up with an index which will help us decide where (aka in which bucket) 
     ##to store the key-value pair/Node
     #the modulo % operation helps deal with big numbers resulting from the hash function
